@@ -18,15 +18,17 @@ jobs:  # Definição dos trabalhos a serem executados
         run: cd app && npm install  # Comando para instalar as dependências do projeto
 
   
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Test Node.js
-        uses: actions/setup-node@v4
+  test: # Nome do trabalho
+
+    runs-on: ubuntu-latest # Sistema operacional em que o trabalho será executado (no caso, Ubuntu)
+
+    steps: # Passos a serem executados no trabalho
+      - uses: actions/checkout@v4 # Passo para fazer o checkout do repositório
+      - name: Test Node.js # Nome do passo
+        uses: actions/setup-node@v4 # Passo para configurar o ambiente Node.js
         with:
-          node-version: '18.x'
-      - name: Install dependencies
-        run: cd app && npm install
-      - name: Run tests
-        run: cd app && npm test
+          node-version: '18.x' # Versão do Node.js a ser usada
+      - name: Install dependencies # Nome do passo
+        run: cd app && npm install # Comando para instalar as dependências do projeto
+      - name: Run tests # Nome do passo
+        run: cd app && npm test # Comando para executar os testes do projeto

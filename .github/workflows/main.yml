@@ -10,7 +10,7 @@ jobs:  # Definição dos trabalhos a serem executados
 
     steps:  # Passos a serem executados no trabalho
       - uses: actions/checkout@v4  # Passo para fazer o checkout do repositório
-      - name: Use Node.js  # Nome do passo
+      - name: Build Node.js  # Nome do passo
         uses: actions/setup-node@v4  # Passo para configurar o ambiente Node.js
         with:
           node-version: '18.x'  # Versão do Node.js a ser usada
@@ -22,7 +22,7 @@ jobs:  # Definição dos trabalhos a serem executados
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Use Node.js
+      - name: Test Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18.x'

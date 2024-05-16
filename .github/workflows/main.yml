@@ -3,6 +3,7 @@ name: GitHub Actions Demo  # Nome do fluxo de trabalho
 on: [push]  # Evento que aciona o fluxo de trabalho (no caso, um push)
 
 jobs:  # Definição dos trabalhos a serem executados
+
   build:  # Nome do trabalho
 
     runs-on: ubuntu-latest  # Sistema operacional em que o trabalho será executado (no caso, Ubuntu)
@@ -15,5 +16,17 @@ jobs:  # Definição dos trabalhos a serem executados
           node-version: '18.x'  # Versão do Node.js a ser usada
       - name: Install dependencies  # Nome do passo
         run: cd app && npm install  # Comando para instalar as dependências do projeto
-      - name: Run tests  # Nome do passo
-        run: cd app && npm test  # Comando para executar os testes do projeto
+
+  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.x'
+      - name: Install dependencies
+        run: cd app && npm install
+      - name: Run tests
+        run: cd app && npm test
